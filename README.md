@@ -25,9 +25,9 @@ Running this program should emit the value: 25.
 
 ### Extensions:
 
--Define and call functions
--Array type variables
--Floating point and string data types
--Unary operators
--More complex expressions (e.g., 5 * 3 - 2)
+- Define and call functions  
+- Array type variables  
+- Floating point and string data types  
+- Unary operators  
+- More complex expressions (e.g., 5 * 3 - 2)
 
