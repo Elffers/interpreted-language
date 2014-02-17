@@ -61,10 +61,7 @@ assignment_hash.each do |k, v|
   end
 end
 
-# # print output
+# print output
 
 output = assignment_hash["print"]
-if assignment_hash.has_key? output
-  puts assignment_hash[output]
-end
-
+assignment_hash[output] if assignment_hash.has_key? output
