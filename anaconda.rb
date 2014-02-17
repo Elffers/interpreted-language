@@ -24,7 +24,7 @@ end
 #Parse value of assigment hash into array if contains binary operator
   assignment_hash.each do |k,v|
     if v.is_a? String
-      operators = %w[= - * /]
+      operators = %w[+ - * /]
       for x in operators
         if v.include?(x)
           assignment_hash[k] = v.partition(" #{x} ")
@@ -56,6 +56,8 @@ assignment_hash.each do |k, v|
       assignment_hash[k] = assignment_hash[k].first * assignment_hash[k].last
     when assignment_hash[k].include?(" + ")
       assignment_hash[k] = assignment_hash[k].first + assignment_hash[k].last
+    when assignment_hash[k].include?(" - ")
+      assignment_hash[k] = assignment_hash[k].first - assignment_hash[k].last
       # etc for other operators
     end
   end
