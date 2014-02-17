@@ -20,3 +20,14 @@ Running this program should emit the value: 25.
 ====
 
 *I ended up using Ruby for starters*
+
+====
+
+### Extensions:
+
+-Define and call functions
+-Array type variables
+-Floating point and string data types
+-Unary operators
+-More complex expressions (e.g., 5 * 3 - 2)
+
