@@ -30,29 +30,41 @@ end
           assignment_hash[k] = v.partition(" #{x} ")
         end
       end
+      # evaluates the variables in the expression
+      assignment_hash[k] = v.map do |variable|
+        if assignment_hash[variable]
+          variable = assignment_hash[variable] 
+        else
+          variable
+        end
+      end  
     end
   end
 
 # evaluate variables in expressions
 assignment_hash.each do |k, v|
   if v.is_a? Array
-     assignment_hash[k] = v.map do |x|
-      if assignment_hash[x]
-        x = assignment_hash[x] 
+    assignment_hash[k] = v.map do |variable|
+      if assignment_hash[variable]
+        variable = assignment_hash[variable] 
       else
-        x
+        variable
       end
+    end  
+    case 
+    when assignment_hash[k].include?(" * ")
+      assignment_hash[k] = assignment_hash[k].first * assignment_hash[k].last
+    when assignment_hash[k].include?(" + ")
+      assignment_hash[k] = assignment_hash[k].first + assignment_hash[k].last
+      # etc for other operators
     end
-    assignment_hash[k] 
-    # maybe in previous block, don't use partition but store operator as something else and numbers only in array
-    # but then what about order of operations?
   end
 end
 
-#evaluate expressions
-
-
-
 # # print output
-# assignment_hash["print"]
+
+output = assignment_hash["print"]
+if assignment_hash.has_key? output
+  puts assignment_hash[output]
+end
 
