@@ -33,7 +33,7 @@ end
     end
   end
 
-# evaluate expressions
+# evaluate variables in expressions
 assignment_hash.each do |k, v|
   if v.is_a? Array
      assignment_hash[k] = v.map do |x|
@@ -43,8 +43,14 @@ assignment_hash.each do |k, v|
         x
       end
     end
+    assignment_hash[k] 
+    # maybe in previous block, don't use partition but store operator as something else and numbers only in array
+    # but then what about order of operations?
   end
 end
+
+#evaluate expressions
+
 
 
 # # print output
