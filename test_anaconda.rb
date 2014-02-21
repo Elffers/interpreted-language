@@ -34,4 +34,8 @@ print y
     return_value = interpret_string(program)
     assert_equal([1, 2], return_value)
   end
+
+  # test all the operators
+  # test variable that hasn't been defined
+  # test non-binary expressions
 end
