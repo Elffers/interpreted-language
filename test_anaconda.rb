@@ -23,4 +23,15 @@ print 1
     return_value = interpret_string(program)
     assert_equal([1], return_value)
   end
+
+  def test_print_multiple
+    program=<<-END
+x = 1
+print x
+y = x + x
+print y
+    END
+    return_value = interpret_string(program)
+    assert_equal([1, 2], return_value)
+  end
 end
