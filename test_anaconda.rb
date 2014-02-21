@@ -12,7 +12,7 @@ x = 1
 print x
     END
     return_value = interpret_string(program)
-    assert_equal(1, return_value)
+    assert_equal([1], return_value)
   end
   
   def test_print_literal
@@ -21,6 +21,6 @@ print 1
     END
     puts program
     return_value = interpret_string(program)
-    assert_equal(1, return_value)
+    assert_equal([1], return_value)
   end
 end
