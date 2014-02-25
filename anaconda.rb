@@ -25,16 +25,16 @@ def evaluate(expression, assignment_hash)
   elsif md = expression.match(/[-+*\/]/)
     operator = md.to_s 
     operands = expression.split(operator)
-    evaluated = operands.map {|o| evaluate(o, assignment_hash)}
+    operand1, operand2 = operands.map {|o| evaluate(o, assignment_hash)}
     case operator
       when "+"
-        evaluated.first + evaluated.last
+        operand1 + operand2
       when "-"
-        evaluated.first - evaluated.last
+        operand1 - operand2
       when "*"
-        evaluated.first * evaluated.last
+        operand1 * operand2
       when "/"
-        evaluated.first / evaluated.last
+        operand1 / operand2
     end
   end
 end
