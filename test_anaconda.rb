@@ -75,15 +75,15 @@ print y
     assert_equal([2], return_value)
   end
 
-#   def test_undefined_variable
-#     program=<<-END
-# x = 2
-# y = 5 + z
-# print y
-#     END
-#     return_value = interpret_string(program)
-#     assert_equal([2], return_value)
-#   end
+  def test_undefined_variable
+    program=<<-END
+x = 2
+y = 5 + z
+print y
+    END
+    return_value = interpret_string(program)
+    assert_equal([2], return_value)
+  end
 
   def test_non_binary_add1
     program=<<-END
