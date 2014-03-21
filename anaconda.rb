@@ -1,4 +1,5 @@
 # Script to interpret a basic theoretical language ("anaconda") that uses only simple variable assignments, binary operators and print statements
+# When run with program.an, should return 25
 
 def interpret(lines)
   assignment_hash = {}
