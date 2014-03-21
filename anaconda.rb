@@ -4,7 +4,6 @@ def interpret(lines)
   lines.each do |line|
     if line.include? "="
       lhs, rhs = line.split(" = ").map {|char| char.strip}
-      # raise error if literal precedes equal sign?
       assignment_hash[lhs] = evaluate(rhs, assignment_hash)
     elsif line.include? "print"
       m = line.match(/print /)
@@ -21,7 +20,6 @@ def evaluate(expression, assignment_hash)
   elsif expression =~ /^\w+$/
     raise Error unless assignment_hash.has_key?(expression)
       assignment_hash[expression] 
-    # this will raise error if variable is not assigned yet
   elsif md = expression.match(/[-+*\/]/)
     operator = md.to_s 
     operands = expression.split(operator)
