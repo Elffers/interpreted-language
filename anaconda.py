@@ -1,5 +1,6 @@
 import sys #basic module, like requiring a gem
 import re
+from operator import mul
 print sys.argv[1] #looking for all the arguments after the python command in c-line
 source = file(sys.argv[1])
 lines = source.readlines()
@@ -39,7 +40,7 @@ def evaluate(expression, assignment_hash):
       return assignment_hash[expression]
   else:
       operand1, operator, operand2 = expression.partition('*')
-      return evaluate(operand1, assignment_hash) * evaluate(operand2, assignment_hash)
+      return mul(evaluate(operand1, assignment_hash), evaluate(operand2, assignment_hash)
 
 interpret(lines)
 
