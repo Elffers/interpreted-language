@@ -1,15 +1,12 @@
-import sys #basic module, like requiring a gem
-print sys.argv[1] #looking for all the arguments after the python command in c-line
+import sys
+print sys.argv[1]
 source = file(sys.argv[1])
 lines = source.readlines()
 source.close()
 
-#interpret here
-
 # x = 5
 # y = x * x
 # print y
-
 
 def interpret(lines):
     assignment_hash = {}
@@ -20,7 +17,7 @@ def interpret(lines):
           assignment_hash[lhs.strip()] = evaluate(rhs.strip(), assignment_hash)
       elif "print" in line:
           print_statement = evaluate(line[6:], assignment_hash)
-          output.append(print_statement) # TODO: line will be the thing after print that postmatch does
+          output.append(print_statement)
     print output
 
 
