@@ -20,7 +20,6 @@ def interpret(lines):
           output.append(print_statement)
     print output
 
-
 def is_int(expression):
     try: int(expression)
     except ValueError:
