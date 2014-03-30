@@ -1,14 +1,15 @@
-import sys
-import re
-from operator import mul
-print sys.argv[1]
+import sys #basic module, like requiring a gem
+print sys.argv[1] #looking for all the arguments after the python command in c-line
 source = file(sys.argv[1])
 lines = source.readlines()
 source.close()
 
+#interpret here
+
 # x = 5
 # y = x * x
 # print y
+
 
 def interpret(lines):
     assignment_hash = {}
@@ -19,7 +20,7 @@ def interpret(lines):
           assignment_hash[lhs.strip()] = evaluate(rhs.strip(), assignment_hash)
       elif "print" in line:
           print_statement = evaluate(line[6:], assignment_hash)
-          output.append(print_statement)
+          output.append(print_statement) # TODO: line will be the thing after print that postmatch does
     print output
 
 
@@ -37,7 +38,6 @@ def evaluate(expression, assignment_hash):
       return assignment_hash[expression]
   else:
       operand1, operator, operand2 = expression.partition('*')
-      return mul(evaluate(operand1, assignment_hash), evaluate(operand2, assignment_hash)
+      return evaluate(operand1, assignment_hash) * evaluate(operand2, assignment_hash)
 
 interpret(lines)
-
